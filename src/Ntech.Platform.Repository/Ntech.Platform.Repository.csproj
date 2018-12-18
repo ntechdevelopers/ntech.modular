@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\bin\$(OutputPath)</OutputPath>
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+  
+   <PropertyGroup>
+    <AppendTargetFrameworkToOutputPath >false</AppendTargetFrameworkToOutputPath>
+   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ValueConfiguration.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ntech.Contract.Entity.SubDatabase\Ntech.Contract.Entity.SubDatabase.csproj" />
+    <ProjectReference Include="..\Ntech.Core.Server\Ntech.Core.Server.csproj" />
+    <ProjectReference Include="..\Ntech.Infrastructure\Ntech.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.EntityFrameworkCore">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.entityframeworkcore\2.1.1\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

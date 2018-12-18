@@ -1,0 +1,40 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Ntech.Core.Server;
+using Ntech.Infrastructure;
+using System.Linq;
+
+namespace Ntech.Platform.Repository
+{
+    public class RepositoryWithTypedId<T, TId> : IRepositoryWithTypedId<T, TId> where T : class
+    {
+        public RepositoryWithTypedId(BaseDataContext context)
+        {
+            Context = context;
+            DbSet = Context.Set<T>();
+        }
+
+        protected DbContext Context { get; }
+
+        protected DbSet<T> DbSet { get; }
+
+        public void Add(T entity)
+        {
+            DbSet.Add(entity);
+        }
+
+        public void SaveChange()
+        {
+            Context.SaveChanges();
+        }
+
+        public IQueryable<T> Query()
+        {
+            return DbSet;
+        }
+
+        public void Remove(T entity)
+        {
+            DbSet.Remove(entity);
+        }
+    }
+}

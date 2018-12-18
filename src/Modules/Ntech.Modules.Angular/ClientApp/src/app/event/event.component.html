@@ -1,0 +1,34 @@
+<div>
+    <h3>My Event</h3>
+    <div>{{event.id}}</div>
+    <div>{{event.eventName}}</div>
+
+    <h3>Input Author</h3>
+    <div *ngIf = 'inputAuthor'>
+        <input [(ngModel)] = "inputAuthor.id" placeholder="Please input id">
+    </div>
+    <div *ngIf = 'inputAuthor'>
+        <input [(ngModel)] = 'inputAuthor.name' placeholder="Please input name">
+    </div>
+    <div>
+        <button value="Add" (click)=onAdd(inputAuthor)>Add</button>
+    </div>
+   
+    <h3>Author</h3>
+    <ul>
+        <li *ngFor = 'let author of authors' (click)=onClick(author) [class.red]="author===selectedAuthor">{{author.id}} - {{author.name}}</li>
+    </ul>
+
+    <h4>Detail</h4>
+    <div *ngIf = 'selectedAuthor!==undefine'>
+        <div>{{selectedAuthor.id}} - {{selectedAuthor.name}}</div>
+    </div>
+
+    <h3 *ngIf='selectedAuthor'>Edit</h3>
+    <div *ngIf='selectedAuthor'>
+        <input [(ngModel)]='selectedAuthor.name' placeholder="Please input">
+    </div>
+
+    <h3>Reference input data</h3>
+    <app-detail [author] = 'selectedAuthor' inputEvent = 'This is event input.'></app-detail>
+</div>

@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Ntech.Modules.Core.Models
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        <img src="~/assets/img/avatars/placeholders/ava-64.png" width="36" height="36" class="ks-avatar rounded-circle">
+        <div class="ks-info">
+            <div class="ks-name">Administrator</div>
+            <div class="ks-text">@UserManager.GetUserName(User)</div>
+        </div>
+    </a>
+}
+else
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link" asp-controller="Account" asp-action="Login" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="fa fa-th ks-icon"></span>
+            <span>Login to display</span>
+        </a>
+    </li>
+}

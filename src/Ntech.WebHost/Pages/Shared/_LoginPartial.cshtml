@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Ntech.Modules.Core.Models
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <a class="nav-item nav-link" asp-controller="Manage" asp-action="Index" title="Manage">@UserManager.GetUserName(User)</a>
+    <!-- BEGIN NAVBAR USER -->
+    <div class="nav-item dropdown ks-user">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="ks-avatar">
+                <img src="~/assets/img/avatars/placeholders/ava-64.png" width="36" height="36">
+            </span>
+            <span class="ks-info">
+                <span class="ks-name">@UserManager.GetUserName(User)</span>
+                <span class="ks-description">Administrator</span>
+            </span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Preview">
+            <a class="dropdown-item" href="#">
+                <span class="fa fa-user-circle-o ks-icon"></span>
+                <span>Profile</span>
+            </a>
+            <form asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
+                <button type="submit" class="dropdown-item">Log off</button>
+            </form>
+        </div>
+    </div>
+    <!-- END NAVBAR USER -->
+}
+else
+{
+    <!-- BEGIN NAVBAR ACTION BUTTON -->
+    <a class="nav-item nav-link" asp-controller="Account" asp-action="Register">Register</a>
+    <a class="nav-item nav-link" asp-controller="Account" asp-action="Login">Log in</a>
+    <!-- END NAVBAR ACTION BUTTON -->
+}

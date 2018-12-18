@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"] - Modular.Modules.Core</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+    <environment names="Development,Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+              asp-fallback-href="~/libs/bootstrap/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" type="text/css" href="~/libs/bootstrap/css/bootstrap.min.css" asp-append-version="true" />
+        <link rel="stylesheet" type="text/css" href="~/libs/font-awesome/css/font-awesome.min.css" asp-append-version="true" />
+        <link rel="stylesheet" type="text/css" href="~/assets/fonts/open-sans/styles.css" asp-append-version="true" />
+        <link rel="stylesheet" type="text/css" href="~/libs/tether/css/tether.min.css" asp-append-version="true" />
+        <link rel="stylesheet" type="text/css" href="~/libs/jscrollpane/jquery.jscrollpane.css" asp-append-version="true" />
+        <link rel="stylesheet" type="text/css" href="~/libs/flag-icon-css/css/flag-icon.min.css" asp-append-version="true" />
+        <link rel="stylesheet" type="text/css" href="~/assets/styles/common.min.css" asp-append-version="true" />
+
+        <!-- BEGIN THEME STYLES -->
+        <link rel="stylesheet" type="text/css" href="~/assets/styles/themes/primary.min.css">
+        <!-- END THEME STYLES -->
+    </environment>
+
+    <!-- END GLOBAL MANDATORY STYLES -->
+</head>
+<!-- END HEAD -->
+
+<body class="ks-navbar-fixed ks-sidebar-default ks-sidebar-fixed ks-theme-primary ks-page-loading">
+
+    <!-- BEGIN HEADER -->
+    <nav class="navbar ks-navbar">
+        <!-- BEGIN HEADER INNER -->
+        <!-- BEGIN LOGO -->
+        <div asp-controller="Home" asp-action="Index" class="navbar-brand">
+            <!-- BEGIN RESPONSIVE SIDEBAR TOGGLER -->
+            <a href="#" class="ks-sidebar-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+            <a href="#" class="ks-sidebar-mobile-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+            <!-- END RESPONSIVE SIDEBAR TOGGLER -->
+            <a asp-controller="Home" asp-action="Index" class="ks-logo">Ntech</a>
+
+            <!-- BEGIN GRID NAVIGATION -->
+            <span class="nav-item dropdown ks-dropdown-grid">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"></a>
+                <div class="dropdown-menu ks-info ks-scrollable" aria-labelledby="Preview" data-height="260">
+                    <div class="ks-scroll-wrapper">
+                        <a asp-controller="Dashboard" asp-action="Index" class="ks-grid-item">
+                            <span class="ks-icon fa fa-dashboard"></span>
+                            <span class="ks-text">Dashboard</span>
+                        </a>
+                    </div>
+                </div>
+            </span>
+            <!-- END GRID NAVIGATION -->
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN MENUS -->
+        <div class="ks-wrapper">
+            <nav class="nav navbar-nav">
+                <!-- BEGIN NAVBAR MENU -->
+                <div class="ks-navbar-menu">
+                    <form class="ks-search-form">
+                        <a class="ks-search-open" href="#">
+                            <span class="fa fa-search"></span>
+                        </a>
+                        <div class="ks-wrapper">
+                            <div class="input-icon icon-right icon icon-lg icon-color-primary">
+                                <input id="input-group-icon-text" type="text" class="form-control" placeholder="Search...">
+                                <span class="icon-addon">
+                                    <span class="fa fa-search ks-icon"></span>
+                                </span>
+                            </div>
+                            <a class="ks-search-close" href="#">
+                                <span class="fa fa-close"></span>
+                            </a>
+                        </div>
+                    </form>
+                    <a class="nav-item nav-link" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <div class="dropdown-menu ks-info" aria-labelledby="Preview">
+                            <a class="dropdown-item ks-active" href="#">Dropdown Link 1</a>
+                            <a class="dropdown-item" href="#">Dropdown Link 2</a>
+                            <a class="dropdown-item" href="#">Dropdown Link 3</a>
+                            <div class="dropdown-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Dropdown
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="Preview">
+                                    <a class="dropdown-item" href="#">Dropdown Link 1</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item nav-link ks-btn-action">
+                        <a class="btn btn-info" href="#">Create</a>
+                    </div>
+                </div>
+                <!-- END NAVBAR MENU -->
+                <!-- BEGIN NAVBAR ACTIONS -->
+                <div class="ks-navbar-actions">
+
+                    <!-- BEGIN NAVBAR LANGUAGES -->
+                    <div class="nav-item dropdown ks-languages">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            EN <span class="ks-text">Languages</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right ks-scrollable" aria-labelledby="Preview">
+                            <div class="ks-wrapper">
+                                <a href="#" class="ks-language ks-selected">
+                                    <span class="flag-icon flag-icon-us ks-icon"></span>
+                                    <span class="ks-text">English</span>
+                                </a>
+                                <a href="#" class="ks-language">
+                                    <span class="flag-icon flag-icon-vn ks-icon"></span>
+                                    <span class="ks-text">VietNamese</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END NAVBAR LANGUAGES -->
+
+                    @await Html.PartialAsync("_LoginPartial")
+
+                </div>
+                <!-- END NAVBAR ACTIONS -->
+            </nav>
+
+            <!-- BEGIN NAVBAR ACTIONS TOGGLER -->
+            <nav class="nav navbar-nav ks-navbar-actions-toggle">
+                <a class="nav-item nav-link" href="#">
+                    <span class="fa fa-ellipsis-h ks-icon ks-open"></span>
+                    <span class="fa fa-close ks-icon ks-close"></span>
+                </a>
+            </nav>
+            <!-- END NAVBAR ACTIONS TOGGLER -->
+            <!-- BEGIN NAVBAR MENU TOGGLER -->
+            <nav class="nav navbar-nav ks-navbar-menu-toggle">
+                <a class="nav-item nav-link" href="#">
+                    <span class="fa fa-th ks-icon ks-open"></span>
+                    <span class="fa fa-close ks-icon ks-close"></span>
+                </a>
+            </nav>
+            <!-- END NAVBAR MENU TOGGLER -->
+        </div>
+        <!-- END MENUS -->
+        <!-- END HEADER INNER -->
+    </nav>
+    <!-- END HEADER -->
+
+    <div class="ks-container">
+
+        <!-- BEGIN DEFAULT SIDEBAR -->
+        <div class="ks-column ks-sidebar ks-info">
+            <div class="ks-wrapper">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="nav-item ks-user dropdown">
+                        @await Html.PartialAsync("_MenuLoginPartial")
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="ks-icon fa fa-dashboard"></span>
+                            <span>Dashboard</span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" asp-controller="Dashboard" asp-action="Index">Default</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="ks-icon fa fa-user"></span>
+                            <span>Role management</span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" asp-controller="Role" asp-action="Index">Roles</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- END DEFAULT SIDEBAR -->
+
+        <div class="ks-column ks-page">
+            <div class="ks-header">
+                <section class="ks-title">
+                    <h3>@ViewData["Title"]</h3>
+                </section>
+            </div>
+            <div class="ks-content">
+                <div class="ks-body">
+                    <div class="container-fluid">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <environment names="Development,Staging,Production">
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="~/libs/jquery/jquery.min.js"></script>
+        <script src="~/libs/responsejs/response.min.js"></script>
+        <script src="~/libs/loading-overlay/loadingoverlay.min.js"></script>
+        <script src="~/libs/tether/js/tether.min.js"></script>
+        <script src="~/libs/bootstrap/js/bootstrap.min.js"></script>
+        <script src="~/libs/jscrollpane/jquery.jscrollpane.min.js"></script>
+        <script src="~/libs/jscrollpane/jquery.mousewheel.js"></script>
+        <script src="~/libs/flexibility/flexibility.js"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="~/assets/scripts/common.min.js"></script>
+        <!-- END THEME LAYOUT SCRIPTS -->
+    </environment>
+
+    <div class="ks-mobile-overlay"></div>
+
+    <!-- BEGIN SETTINGS BLOCK -->
+    <div class="ks-settings-slide-block">
+        <a class="ks-settings-slide-control">
+            <span class="ks-icon fa fa-comments-o"></span>
+        </a>
+
+        <div class="ks-header">
+            <span class="ks-text">Fanpage</span>
+            <a class="ks-settings-slide-close-control">
+                <span class="ks-icon fa fa-close"></span>
+            </a>
+        </div>
+
+    </div>
+    <!-- END SETTINGS BLOCK -->
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
