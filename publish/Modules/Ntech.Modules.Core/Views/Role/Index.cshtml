@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Role Page";
+}
+@model IEnumerable<Ntech.Modules.Core.ViewModels.RoleViewModels.RoleViewModel>
+
+<div class="panel-body">
+    <div class="btn-group" style="margin-bottom:10px">
+        <a id="createRoleModal" data-toggle="modal" asp-action="AddEditApplicationRole" data-target="#modal-action-application-role" class="btn btn-primary">
+            <i class="glyphicon glyphicon-plus"></i>  Add Role
+        </a>
+    </div>
+    <div class="top-buffer"></div>
+    <table class="table table-bordered table-striped table-condensed">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Users</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.RoleName</td>
+                    <td>@item.NormalizedName</td>
+                    <td>@item.NumberOfUsers</td>
+                    <td>
+                        <a id="addEditApplicationRoleModal" data-toggle="modal" asp-action="AddEditApplicationRole" asp-route-id="@item.Id" data-target="#modal-action-application-role"
+                           class="btn btn-info">
+                            <i class="glyphicon glyphicon-pencil"></i>  Edit
+                        </a>
+                        @if (item.NumberOfUsers == 0)
+                        {
+                            <a id="deleteApplicationRoleModal" data-toggle="modal" asp-action="DeleteApplicationRole" asp-route-id="@item.Id" data-target="#modal-action-application-role" class="btn btn-danger">
+                                <i class="glyphicon glyphicon-trash"></i>  Delete
+                            </a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@section scripts
+    {
+    <script src="~/js/application-role-index.js" asp-append-version="true"></script>
+}

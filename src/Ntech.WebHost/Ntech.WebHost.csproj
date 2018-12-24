@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+	<PreserveCompilationContext>true</PreserveCompilationContext>
+    <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -1090,6 +1092,7 @@
     <ProjectReference Include="..\Modules\Ntech.Modules.Core\Ntech.Modules.Core.csproj" />
     <ProjectReference Include="..\Ntech.Core.Server\Ntech.Core.Server.csproj" />
     <ProjectReference Include="..\Ntech.Infrastructure\Ntech.Infrastructure.csproj" />
+    <ProjectReference Include="..\Ntech.Platform.CommonService\Ntech.Platform.CommonService.csproj" />
     <ProjectReference Include="..\Ntech.Platform.Repository\Ntech.Platform.Repository.csproj" />
   </ItemGroup>
 
